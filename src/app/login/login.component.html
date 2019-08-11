@@ -1,2 +1,7 @@
-<p>Username:</p><input type="text" id="username" value="username">
-<p>Password:</p><input type="text" id="password" value="super secret password">
+<p>Username:</p><input type="text" id="username" placeholder="username">
+<p>Password:</p><input type="text" id="password" placeholder="super secret password">
+<!--Should print all usernames once I can connect to the server / concept and proof of connection-->
+<p *ngFor="let u of user | async">
+    {{u.username}}
+</p>
+<p>Hello there</p>
