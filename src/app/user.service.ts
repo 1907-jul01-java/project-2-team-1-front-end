@@ -11,6 +11,6 @@ export class UserService{
     constructor(private httpClient:HttpClient){}
 
     getUsers(): Observable<User[]>{
-        return this.httpClient.get<User[]>('http://18.191.142.3:8181')
+        return this.httpClient.get<User[]>('http://18.191.142.3:8181/users')
     }
 }
