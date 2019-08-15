@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Users } from '../JSON/Users';
-import { stringify } from 'querystring';
 
 //Stretch Goal: Dynamic Username
 @Component({
@@ -33,7 +32,7 @@ export class SignupComponent implements OnInit {
     this.users = {username: this.username,
       password: this.password};
     this.userService.postUserS(this.users);
-    console.log(JSON.stringify(this.users));
+    console.log(JSON.parse(this.users));
     
   }
 }

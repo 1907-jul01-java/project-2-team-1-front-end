@@ -11,7 +11,7 @@ import { Users } from '../JSON/Users';
   <p>Password:</p><input type="password" #pass placeholder="super secret password"><br/><br/>
   <button (click)="login(uname.value, pass.value)">Login</button>
   </div>
-  <p *ngFor="let u of users | async" style="text-align: center">
+  <p *ngFor="let u of user | async" style="text-align: center">
       {{u.username}}
   </p>
   <p style="text-align: center">Hello there</p>
@@ -21,19 +21,20 @@ import { Users } from '../JSON/Users';
 export class LoginComponent implements OnInit {
 
   user:Observable<Users[]>
-  users:Observable<Users[]>
+  users;
   username: string;
   password: string;
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.user = this.userService.getUsers();
   }
 
   login(uname, pass){
     this.username = uname.valueOf();
     this.password = pass.valueOf();
-    this.users = this.userService.postUser();
+    this.users = {username: this.username, password: this.password}
+    this.userService.postUser(this.users);
   }
 
 }
