@@ -31,8 +31,8 @@ export class SignupComponent implements OnInit {
     this.password = password.valueOf();
     this.users = {username: this.username,
       password: this.password};
-    this.userService.postUserS(this.users);
-    console.log(JSON.parse(this.users));
+    this.userService.postUserS((this.users));
+    console.log(JSON.stringify(this.users));
     
   }
 }
