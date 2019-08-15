@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from '../user.service';
-import { User } from '../JSON/User';
+import { Users } from '../JSON/Users';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,18 @@ import { User } from '../JSON/User';
 })
 export class LoginComponent implements OnInit {
 
-  users:Observable<User[]>
+  username = '';
+  user:Observable<Users[]>
+  users:Observable<Users[]>
   constructor(private userService:UserService) { }
 
   ngOnInit() {
     this.users = this.userService.getUsers();
+  }
+
+  login(){
+    this.user = this.userService.postUser(this.username);
+    {{this.username}}
   }
 
 }

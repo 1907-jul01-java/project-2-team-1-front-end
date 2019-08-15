@@ -10,7 +10,11 @@ import { Review } from './JSON/Review';
 export class ReviewService{
     constructor(private httpClient:HttpClient){}
 
-    getUsers(): Observable<Review[]>{
-        return this.httpClient.get<Review[]>('http://localhost:8181/reviews')
+    getReviews(title: string): Observable<Review[]>{
+        return this.httpClient.post<Review[]>('http://18.191.142.3:8181/reviews', title)
+    }
+
+    postReview(review:string): Observable<Review[]>{
+        return this.httpClient.post<Review[]>('http://18.191.142.3:8181/reviews', review)
     }
 }

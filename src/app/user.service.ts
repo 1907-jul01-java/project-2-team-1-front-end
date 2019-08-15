@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from './JSON/User';
+import { Users } from './JSON/Users';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +10,16 @@ import { User } from './JSON/User';
 export class UserService{
     constructor(private httpClient:HttpClient){}
 
-    getUsers(): Observable<User[]>{
-        return this.httpClient.get<User[]>('http://18.191.142.3:8181/users')
+    users:Observable<Users[]>
+    getUsers(): Observable<Users[]>{
+        return this.httpClient.get<Users[]>('http://18.191.142.3:8181/login')
+    }
+
+    postUser(users): Observable<Users[]>{
+        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
+    }
+
+    postUserS(users): Observable<Users[]>{
+        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/signup', users)
     }
 }
