@@ -10,16 +10,15 @@ import { Users } from './JSON/Users';
 export class UserService{
     constructor(private httpClient:HttpClient){}
 
-    users:Observable<Users[]>
     getUsers(): Observable<Users[]>{
         return this.httpClient.get<Users[]>('http://18.191.142.3:8181/login')
     }
 
-    postUser(users): Observable<Users[]>{
+    postUser(users: Users): Observable<Users[]>{
         return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
     }
 
-    postUserS(users): Observable<Users[]>{
-        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/signup', users)
+    postUserS(users: Users){
+        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login/newUser', users)
     }
 }

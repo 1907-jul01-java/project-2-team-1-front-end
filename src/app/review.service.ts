@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Review } from './JSON/Review';
+import { Anime } from './JSON/Anime'
 
 @Injectable({
     providedIn: 'root'
@@ -10,11 +11,13 @@ import { Review } from './JSON/Review';
 export class ReviewService{
     constructor(private httpClient:HttpClient){}
 
-    getReviews(title: string): Observable<Review[]>{
-        return this.httpClient.post<Review[]>('http://18.191.142.3:8181/reviews', title)
+    review:Observable<Review[]>
+    anime:Observable<Anime[]>
+    getReviews(anime): Observable<Anime[]>{
+        return this.httpClient.post<Anime[]>('http://18.191.142.3:8181/reviews/getReviews', anime)
     }
 
-    postReview(review:string): Observable<Review[]>{
+    postReview(review): Observable<Review[]>{
         return this.httpClient.post<Review[]>('http://18.191.142.3:8181/reviews', review)
     }
 }
