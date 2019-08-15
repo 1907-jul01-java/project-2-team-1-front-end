@@ -1,2 +1,9 @@
-<p>Username:</p><input type="text" id="username" value="username">
-<p>Password:</p><input type="text" id="password" value="super secret password">
+<div style="text-align: center">
+<p>Username:</p><input type="text" id="username" placeholder="username">
+<p>Password:</p><input type="password" id="password" placeholder="super secret password"><br/><br/>
+<button type="submit" onclick="login()">Login</button>
+</div>
+<p *ngFor="let u of users | async" style="text-align: center">
+    {{u.username}}
+</p>
+<p style="text-align: center">Hello there {{username}}</p>
