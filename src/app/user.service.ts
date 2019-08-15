@@ -15,11 +15,11 @@ export class UserService{
         return this.httpClient.get<Users[]>('http://18.191.142.3:8181/login')
     }
 
-    postUser(users): Observable<Users[]>{
-        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
+    postUser(): Observable<Users[]>{
+        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', this.users)
     }
 
     postUserS(users): Observable<Users[]>{
-        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/signup', users)
+        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/signup', this.users)
     }
 }

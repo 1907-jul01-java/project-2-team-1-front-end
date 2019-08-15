@@ -1,5 +1,6 @@
 export class Review{
-    username: String;
+    rating: number;
     review: String;
+    username: String;
     title: String;
 }

@@ -1,7 +1,7 @@
 <div style="text-align: center">
-<p>Username:</p><input type="text" id="username" placeholder="username">
-<p>Password:</p><input type="password" id="password" placeholder="super secret password"><br/><br/>
-<button type="submit" onclick="login()">Login</button>
+<p>Username:</p><input [ngModel]="username" placeholder="username">
+<p>Password:</p><input type="password" [ngModel]="password" placeholder="super secret password"><br/><br/>
+<button (click)="login([username], [password])">Login</button>
 </div>
 <p *ngFor="let u of users | async" style="text-align: center">
     {{u.username}}
