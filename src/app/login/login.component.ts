@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   users;
   username: string;
   password: string;
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,public sessionService: SessionService) { }
 
   ngOnInit() {
   }
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.users = {username: this.username, password: this.password};
     this.userService.postUser(this.users).subscribe((result)=>console.log(result.hasOwnProperty('text').valueOf()));
     console.log(JSON.stringify(this.users));
+    this.sessionService.setName(this.username);
   }
 
 }

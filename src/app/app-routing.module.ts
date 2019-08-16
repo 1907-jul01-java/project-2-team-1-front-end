@@ -28,7 +28,7 @@ const routes: Routes = [
         component: AboutComponent
     },
     {
-        path: 'biglist',
+        path: 'demo',
         component: BiglistComponent
     }
 ];
