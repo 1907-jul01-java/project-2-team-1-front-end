@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Users } from '../JSON/Users';
+import { Router } from '@angular/router';
 
 //Stretch Goal: Dynamic Username
 @Component({
@@ -16,7 +17,7 @@ import { Users } from '../JSON/Users';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -31,8 +32,8 @@ export class SignupComponent implements OnInit {
     this.password = password.valueOf();
     this.users = {username: this.username,
       password: this.password};
-    this.userService.postUserS(this.users);
-    console.log(JSON.parse(this.users));
+    this.userService.postUserS(this.users).subscribe((result)=>console.log(result));
+    console.log(JSON.stringify(this.users));
     
   }
 }
