@@ -16,6 +16,7 @@ export class BiglistComponent implements OnInit {
   rating: number;
  username :string;
  animename: string;
+ synopsis: string;
   global_array=new Array();
 
   constructor(public sessionService: SessionService) {
@@ -31,7 +32,7 @@ export class BiglistComponent implements OnInit {
 
     
     var theUrl = 'https://api.jikan.moe/v3/search/anime?q='+this.target+'&limit=1';
-
+console.log(theUrl);
     var xmlHttp = null;
 
     xmlHttp = new XMLHttpRequest();
@@ -46,7 +47,13 @@ export class BiglistComponent implements OnInit {
     this.url=this.url.replace(/['"]+/g, '')
 
     this.animename= JSON.stringify(obj.results[0]['title']);
-    this.animename=this.url.replace(/['"]+/g, '')
+    this.animename=this.animename.replace(/['"]+/g, '')
+
+    this.synopsis= JSON.stringify(obj.results[0]['synopsis']);
+    this.synopsis=this.synopsis.replace(/['"\ ]+/g, '')
+
+    console.log(this.animename);
+    this.getReviews();
    }
 
   ngOnInit() {
@@ -80,17 +87,31 @@ export class BiglistComponent implements OnInit {
                                 "animename": this.animename
                                 }));
 
+
+                           console.log(     JSON.stringify({
+                                  "rating": this.rating,
+                                  "description": this.description,
+                                  "username": this.username,
+                                  "animename": this.animename
+                                  }));
+
                                 
         
   }
 
 
   test(){
-    this.rating=1;
-    this.description='its really good';
-    this.animename='https://myanimelist.net/anime/1/Cowboy_Bebop';
-    this.username='marc';
-
+   
+this.rating,
+this.description,
+this.username,
+this.animename;
+console.log(JSON.stringify({
+  "rating": this.rating,
+  "description": this.description,
+  "username": this.username,
+  "animename": this.animename
+  }));             
     this.getReviews();
   }
 
@@ -126,8 +147,8 @@ export class BiglistComponent implements OnInit {
     //xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8'); //400 basrequest
 
     xhttp.withCredentials = false;
-    xhttp.send('https://myanimelist.net/anime/1/Cowboy_Bebop');
-
+    xhttp.send(this.animename);
+    console.log(this.animename);
     console.log(xhttp);
   
 

@@ -4,12 +4,12 @@
 <button (click)="search()">search</button><br/>
 
 <img src={{img_url}} /><br/>
-
+{{synopsis}}
 
 <a href={{url}}>{{url}}</a><br/>
 ----------------<br/>
-<input [(ngModel)]="description"><br/>
-<input [(ngModel)]="rating"><br/>
+<input [(ngModel)]="rating">rating<br/>
+<input [(ngModel)]="description">description:<br/>
 <button (click)="postReview()">submit</button><br/>
 
 
