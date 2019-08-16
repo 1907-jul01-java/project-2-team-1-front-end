@@ -23,7 +23,7 @@ export class UserService{
     //     return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
     // }
 
-    postUserS(users: Users){
-        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login/newUser', users, this.options)
+    postUserS(users: {}){
+        return this.httpClient.post('http://18.191.142.3:8181/login/newUser', users)
     }
 }
