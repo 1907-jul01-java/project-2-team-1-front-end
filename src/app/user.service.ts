@@ -15,13 +15,13 @@ export class UserService{
     });
     options = {headers: this.headers};
 
-    getUsers(): Observable<Users[]>{
-        return this.httpClient.get<Users[]>('http://18.191.142.3:8181/login')
-    }
+    // getUsers(): Observable<Users[]>{
+    //     return this.httpClient.get<Users[]>('http://18.191.142.3:8181/login')
+    // }
 
-    postUser(users: Users): Observable<Users[]>{
-        return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
-    }
+    // postUser(users: Users): Observable<Users[]>{
+    //     return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login', users)
+    // }
 
     postUserS(users: Users){
         return this.httpClient.post<Users[]>('http://18.191.142.3:8181/login/newUser', users, this.options)
