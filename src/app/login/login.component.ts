@@ -1,40 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { UserService } from '../user.service';
-import { Users } from '../JSON/Users';
+import { Router } from '@angular/router';
+import { HttpHeaderResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   template: `<div style="text-align: center">
-  <p>Username:</p><input #uname placeholder="username">
-  <p>Password:</p><input type="password" #pass placeholder="super secret password"><br/><br/>
-  <button (click)="login(uname.value, pass.value)">Login</button>
+  <p>Username:</p><input #username placeholder="username">
+  <p>Password:</p><input type="password" #password placeholder="super secret password"><br/><br/>
+  <button (click)="login(username.value, password.value)">Login</button>
   </div>
-  <p *ngFor="let u of user | async" style="text-align: center">
-      {{u.username}}
-  </p>
   <p style="text-align: center">Hello there</p>
   `,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  user:Observable<Users[]>
+  router: Router;
+  response: HttpHeaderResponse;
   users;
   username: string;
   password: string;
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-    this.user = this.userService.getUsers();
   }
 
-  login(uname, pass){
-    this.username = uname.valueOf();
-    this.password = pass.valueOf();
-    this.users = {username: this.username, password: this.password}
-    this.userService.postUser(this.users);
+  login(username, password){
+    this.username = username.valueOf();
+    this.password = password.valueOf();
+    this.users = {username: this.username, password: this.password};
+    this.userService.postUser(this.users).subscribe((result)=>console.log(result.hasOwnProperty('text').valueOf()));
+    console.log(JSON.stringify(this.users));
   }
 
 }

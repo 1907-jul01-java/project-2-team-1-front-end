@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
     this.password = password.valueOf();
     this.users = {username: this.username,
       password: this.password};
-    this.userService.postUserS(this.users).subscribe(()=>this.router.navigate(['/']));
+    this.userService.postUserS(this.users).subscribe((result)=>console.log(result));
     console.log(JSON.stringify(this.users));
     
   }
