@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { BiglistComponent } from './biglist/biglist.component';
 
 
  
@@ -25,6 +26,10 @@ const routes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+    {
+        path: 'biglist',
+        component: BiglistComponent
     }
 ];
 

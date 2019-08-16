@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SessionService } from './session.service';
+import { BiglistComponent } from './biglist/biglist.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SessionService } from './session.service';
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    BiglistComponent
   ],
   imports: [
     BrowserModule,
