@@ -53,7 +53,7 @@ console.log(theUrl);
     this.synopsis=this.synopsis.replace(/['"\ ]+/g, '')
 
     console.log(this.animename);
-    this.getReviews();
+    
    }
 
   ngOnInit() {
@@ -125,10 +125,6 @@ console.log(JSON.stringify({
     var text ='testing';
     var yourArray=this.global_array;
 
-    
-    
-    
-
     xhttp.onreadystatechange =function(this) {
       if (this.readyState === 4 && this.status === 200) {
 
@@ -151,7 +147,7 @@ console.log(JSON.stringify({
     console.log(this.animename);
     console.log(xhttp);
   
-
+    
 
   }
 
