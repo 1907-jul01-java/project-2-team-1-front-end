@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit {
     this.username = username.valueOf();
     this.password = password.valueOf();
     this.users = {username: this.username, password: this.password};
-    this.userService.postUser(this.users).subscribe((result)=>console.log(result.hasOwnProperty('text').valueOf()));
+    this.userService.postUser(this.users);
     console.log(JSON.stringify(this.users));
+    window.location.assign("http://localhost:4200")
   }
 
 }
