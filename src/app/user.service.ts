@@ -11,7 +11,7 @@ export class UserService{
     router: Router;
 
     postUser(users: {}){
-        return this.httpClient.post('http://18.191.142.3:8181/login', users);
+        return this.httpClient.post('http://18.191.142.3:8181/login', users, {observe: 'response'}).subscribe((resp)=>{sessionStorage.setItem("username", JSON.stringify(resp.body.valueOf()).slice(JSON.stringify(resp.body.valueOf()).indexOf('username') + 11, JSON.stringify(resp.body.valueOf()).indexOf('password') - 3))});
     }
 
     postUserS(users: {}){

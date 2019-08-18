@@ -1,0 +1,18 @@
+.reviews {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+}
+.reviews > *{
+	margin-left: 20px;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	height: 12em;
+}
+.get{
+	height: 25px;
+}

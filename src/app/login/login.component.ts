@@ -1,16 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
-
-
-import {SessionService} from '../session.service';
-import {Inject} from '@angular/core';
-import { Observable } from 'rxjs';
-
-
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { HttpHeaderResponse } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-login',
@@ -31,7 +22,7 @@ export class LoginComponent implements OnInit {
   users;
   username: string;
   password: string;
-  constructor(private userService:UserService,public sessionService: SessionService) { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
   }
@@ -40,9 +31,9 @@ export class LoginComponent implements OnInit {
     this.username = username.valueOf();
     this.password = password.valueOf();
     this.users = {username: this.username, password: this.password};
-    this.userService.postUser(this.users).subscribe((result)=>console.log(result.hasOwnProperty('text').valueOf()));
+    this.userService.postUser(this.users);
     console.log(JSON.stringify(this.users));
-    this.sessionService.setName(this.username);
+    window.location.assign("http://localhost:4200")
   }
 
 }

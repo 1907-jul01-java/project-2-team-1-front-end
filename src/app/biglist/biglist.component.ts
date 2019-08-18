@@ -21,8 +21,7 @@ export class BiglistComponent implements OnInit {
 
   constructor(public sessionService: SessionService) {
       
-    
-     this.username=sessionService.getUsername();
+    this.username = sessionStorage.getItem("username");
 
    }
 

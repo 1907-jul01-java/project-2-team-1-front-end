@@ -2,32 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AnimeDetailsComponent } from './anime-details/anime-details.component';
+import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { SessionService } from './session.service';
 import { BiglistComponent } from './biglist/biglist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    LoginComponent,
     HomeComponent,
-    AboutComponent,
-    BiglistComponent
+	AnimeDetailsComponent,
+	SignupComponent,
+	LoginComponent,
+	AboutComponent,
+	BiglistComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+	BrowserModule,
+	HttpClientModule,
+	AppRoutingModule,
+	FormsModule
   ],
-  providers: [CookieService, SessionService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

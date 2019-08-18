@@ -1,0 +1,18 @@
+<button (click)="goBack()">go back</button>
+<div *ngIf = "search">
+	<h2>{{search.title}}</h2>
+	<img src="{{search.image_url}}"/>
+	<p>{{search.synopsis}}</p>
+</div>
+<div class = "reviews">
+<button class = "get" (click)="showReviews()">Show Reviews</button>
+<form #f="ngForm" (ngSubmit)= "onSubmit(f)" novalidate>
+	<input name="description" ngModel> 
+	<button type="submit">Post Review</button>
+</form>
+<div *ngFor = "let responses of responses">
+	<h1>{{responses.rating}}</h1>
+	<p>{{responses.description}}</p>
+	<p>{{responses.username}}</p>
+</div>
+</div>
