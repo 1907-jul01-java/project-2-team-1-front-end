@@ -12,12 +12,15 @@ export class BiglistComponent implements OnInit {
 
   target='';
 
+  hide = document.querySelector("#hide");
+
   description: string;
   rating: number;
  username :string;
  animename: string;
  synopsis: string;
   global_array=new Array();
+  simple = "0"
 
   constructor(public sessionService: SessionService) {
       
@@ -28,8 +31,8 @@ export class BiglistComponent implements OnInit {
    search(){
 
     
-
-    
+	this.simple = "100"
+	
     var theUrl = 'https://api.jikan.moe/v3/search/anime?q='+this.target+'&limit=1';
 console.log(theUrl);
     var xmlHttp = null;
@@ -42,7 +45,7 @@ console.log(theUrl);
     this.img_url= JSON.stringify(obj.results[0]['image_url']);
     this.img_url=this.img_url.replace(/['"]+/g, '')
 
-    this.url= JSON.stringify(obj.results[0]['url']);
+    this.url= JSON.stringify(obj.results[0]['mal_id']);
     this.url=this.url.replace(/['"]+/g, '')
 
     this.animename= JSON.stringify(obj.results[0]['title']);

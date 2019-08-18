@@ -6,7 +6,7 @@
 <img src={{img_url}} /><br/>
 {{synopsis}}
 
-<a href={{url}}>{{url}}</a><br/>
+<a [style.opacity] = "simple" routerLink ="../details/{{url}}">Learn More</a><br/>
 ----------------<br/>
 <input [(ngModel)]="rating">rating<br/>
 <input [(ngModel)]="description">description:<br/>
