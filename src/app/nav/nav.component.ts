@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,13 +11,15 @@ export class NavComponent implements OnInit {
 	message = "";
 	answer = sessionStorage.getItem("username");
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(router : Router) { 
+	  router.events.forEach((event) => {
+		  if(event instanceof RouterEvent){
+			  this.message = null;
+		  }
+	  })
   }
 
-  erase(){
-	  this.message = "";
+  ngOnInit() {
   }
 
   logout(){

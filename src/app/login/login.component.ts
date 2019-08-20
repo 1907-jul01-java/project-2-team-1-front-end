@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   router: Router;
   response: HttpHeaderResponse;
   users;
+  interval;
   username: string;
   password: string;
   constructor(private userService:UserService) { }
@@ -32,8 +33,11 @@ export class LoginComponent implements OnInit {
     this.password = password.valueOf();
     this.users = {username: this.username, password: this.password};
     this.userService.postUser(this.users);
-    console.log(JSON.stringify(this.users));
-    window.location.assign("http://localhost:4200")
+	console.log(JSON.stringify(this.users));
+	this.interval = setInterval(() => {
+    window.location.assign("http://localhost:4200");
+  },100)
+    
   }
 
 }
