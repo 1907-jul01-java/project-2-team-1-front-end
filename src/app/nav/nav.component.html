@@ -1,0 +1,7 @@
+<nav>
+	<a (click) = "erase()" routerLink="/home">Home</a>
+	<button *ngIf="answer" (click)="logout()">Log Out</button>
+</nav>
+<div *ngIf="message">
+	<p>{{message}}</p>
+</div>

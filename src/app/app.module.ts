@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { BiglistComponent } from './biglist/biglist.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BiglistComponent } from './biglist/biglist.component';
 	LoginComponent,
 	AboutComponent,
 	BiglistComponent,
+	NavComponent,
   ],
   imports: [
 	BrowserModule,

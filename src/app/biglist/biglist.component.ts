@@ -52,7 +52,7 @@ console.log(theUrl);
     this.animename=this.animename.replace(/['"]+/g, '')
 
     this.synopsis= JSON.stringify(obj.results[0]['synopsis']);
-    this.synopsis=this.synopsis.replace(/['"\ ]+/g, '')
+    //this.synopsis=this.synopsis.replace(/['"\ ]+/g, '')
 
     console.log(this.animename);
     
