@@ -8,6 +8,9 @@
 <button class = "get" (click)="showReviews()">Show Reviews</button>
 <form #f="ngForm" (ngSubmit)= "onSubmit(f)" novalidate *ngIf="answer">
 	<input name="description" ngModel> 
+	<select name="rating" ngModel>
+		<option [value]="number" *ngFor="let number of numbers">{{number}}</option>
+	</select>
 	<button type="submit">Post Review</button>
 </form>
 <div *ngFor = "let responses of responses">

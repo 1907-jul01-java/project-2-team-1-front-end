@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
-import {HttpHeaders} from '@angular/common/http'
+import {HttpHeaders} from '@angular/common/http';
 
 import { Anime } from '../anime';
 import { SearchService }  from '../search.service';
@@ -19,9 +19,8 @@ export class AnimeDetailsComponent implements OnInit {
 	check;
 	answer = sessionStorage.getItem("username");
 	thing = "hello";
-	hero = {
-		
-	}
+	numbers = [1, 2, 3, 4, 5];
+
 	 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -55,7 +54,7 @@ export class AnimeDetailsComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {  
-	  this.http.post('http://18.191.142.3:8181/reviews', {"rating": 4, "description": f.value.description, "username": this.answer, "animename": this.search.title}, this.httpOptions)
+	  this.http.post('http://18.191.142.3:8181/reviews', {"rating": f.value.rating, "description": f.value.description, "username": this.answer, "animename": this.search.title}, this.httpOptions)
 	 .subscribe((data) => {
           this.check = data;
 		  console.log(this.check)

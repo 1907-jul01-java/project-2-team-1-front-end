@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 	console.log(JSON.stringify(this.users));
 	this.interval = setInterval(() => {
     window.location.assign("http://localhost:4200");
-  },100)
+  },200)
     
   }
 

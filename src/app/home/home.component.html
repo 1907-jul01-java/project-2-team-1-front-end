@@ -4,8 +4,8 @@
   </div></div>
 <router-outlet></router-outlet>
 <div id = "container">
-	<a *ngFor="let top of (top | slice:12:18)" routerLink="/details/{{top.mal_id}}">
-  		<h2>{{top.title}}</h2>
-    	<img src="{{top.image_url}}"/>
+	<a *ngFor="let top of (top | slice:13:19)" routerLink="/details/{{top.mal_id}}">
+		<img src="{{top.image_url}}"/>
+		<p>{{top.title}}</p>
 	</a>
 </div>
