@@ -4,3 +4,35 @@ button {
 	margin-left: 10px;
 	cursor: pointer;
 }
+nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: solid black 1px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	width: 600px;
+	height: 40px;
+	background: linear-gradient(rgba(7,4,66,1) 13%, rgba(9,9,121,1) 63%, rgba(9,5,56,1) 100%);
+	margin-left: auto;
+	margin-right: auto;
+}
+nav *{
+	width: 20%;
+	font-size: 21px;
+}
+nav a{
+	text-decoration: none;
+	color: white;
+}
+nav a:hover{
+	color: orange;
+	border-color: white;
+}
+nav *:not(:last-child){
+	padding-right: 5px;
+	border-right: inset 1px;
+}

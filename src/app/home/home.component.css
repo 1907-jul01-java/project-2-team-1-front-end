@@ -1,5 +1,8 @@
+#under{
+	text-decoration: underline;
+}
 #container{
-	width: 80%;
+	width: 83%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -7,21 +10,62 @@
 	justify-content: center;
 }
 #container > a{
-	width: 28%;
+	width: 200px;
 	margin-right: 10px;
 	margin-top: 15px;
-	height: 440px;
+	height: 330px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	border: groove black 2px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+	margin-left: 30px;
+	margin-bottom: 35px;
 }
 #container img{
-	width: 80%;
-	height: 80%;
-	border: solid black 1.2px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.main{
+	width: 200px;
+	height: 330px;
+	cursor: pointer;
+	transform-style: preserve-3d;
+    transform: translateZ(-130px);
+    transition: transform 350ms;
+}
+.main .image, .main .explain{
+	width: 200px;
+	height: 330px;
+	position: absolute;
+	backface-visibility: hidden;
+	transition: box-shadow 350ms;
+}
+.main .image{
+	transform: translateZ(100px);
+	background-size: 200px 330px;
+}
+.main .explain{
+	transform: rotateY(90deg) translateZ(100px);
+	background-color: white;
+}
+.main:hover{
+	transform: rotateY(-73deg) translateZ(10px);
+}
+.main:after{
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	bottom: 0;
+	transform-origin: 100% 100%;
+	transform: rotateX(90deg) translateY(150px);
+	transition: box-shadow 350ms;
+}
+hr{
+	background-color: black;
 }

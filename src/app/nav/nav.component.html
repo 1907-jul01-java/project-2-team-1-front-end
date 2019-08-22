@@ -1,5 +1,8 @@
 <nav>
 	<a routerLink="/home">Home</a>
+	<a href="http://localhost:4200/login">Login</a><a href="http://localhost:4200/signup">Sign Up</a><p *ngFor='let u of user || async'>{{u.username}}</p>
+	  <a routerLink="/search">Search</a>
+  
 	<button *ngIf="answer" (click)="logout()">Log Out</button>
 </nav>
 <div *ngIf="message">
