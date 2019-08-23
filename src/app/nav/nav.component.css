@@ -28,11 +28,17 @@ nav a{
 	text-decoration: none;
 	color: white;
 }
-nav a:hover{
+nav a:hover, nav button:hover{
 	color: orange;
 	border-color: white;
 }
 nav *:not(:last-child){
 	padding-right: 5px;
 	border-right: inset 1px;
+}
+nav button{
+	border: 0;
+	color: white;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
 }
